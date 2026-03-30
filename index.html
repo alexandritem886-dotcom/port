@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PARTICLE BACKGROUND -->
+<div id="particles-js"></div>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>My portfolio</h1>
+    <p class="tagline"><span id="typing"></span></p>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal">
+    <h2>About Me</h2>
+    <p>
+        I build software solutions that combine logic, creativity, and impact.
+        My work reflects clarity, depth, and intentional design. Ofcourse, i'm only but a beginner though.
+    </p>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects reveal">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+        <h3>FocusNote</h3>
+        <p>So, this is a minimal note-taking tool designed to reduce cognitive overload and improve focus for individuals with ADHD through simplicity and visual organization.</p>
+        <a href="">FocusNote - ADHD App</a>
+    </div>
+
+    <div class="project-card">
+        <h3>CalmPlay</h3>
+        <p>This is an interactive game designed for autistic children, focusing on gentle visuals, predictable patterns, and stress-free engagment</p>
+        <a href="">CalmPlay game</a>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal">
+    <h2>Contact</h2>
+    <p>Email: fuzzybear@gmail.com</p>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="particles-config.js"></script>
+
+<script>
+// Typing effect
+const text = "Building systems from silence...";
+let i = 0;
+function type() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 50);
+    }
+}
+type();
+
+// Scroll reveal
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll", revealOnScroll);
+
+// Cursor glow
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+</script>
+
+</body>
+</html>
